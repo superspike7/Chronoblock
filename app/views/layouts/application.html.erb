@@ -6,7 +6,10 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application" %>
+    <%= vite_client_tag %>
+    <%= vite_javascript_tag 'application.jsx' %>
+    <%= vite_stylesheet_tag "application" %>
+
   </head>
 
   <body>
