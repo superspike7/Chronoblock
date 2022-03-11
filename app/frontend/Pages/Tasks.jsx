@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 function NoteIcon() {
   return (
@@ -7,7 +7,7 @@ function NoteIcon() {
       width="32"
       height="32"
       fill="currentColor"
-      class="bi bi-journal-text"
+      className="bi bi-journal-text"
       viewBox="0 0 16 16"
     >
       <path d="M5 10.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z" />
@@ -18,6 +18,8 @@ function NoteIcon() {
 }
 
 export default function Tasks() {
+  const [isShown, setIsShown] = useState(false);
+
   return (
     <div className="relative sm:w-[50%] w-[90%] mx-auto mt-24  flex bg-gray-900 gap-0.5">
       <div className="grid place-items-center fixed bottom-20 right-1 h-16 w-16 bg-purple-500 text-gray-100 rounded-full text-center ">
@@ -48,13 +50,30 @@ export default function Tasks() {
         <li className="text-2xl h-32 bg-[#301934] text-gray-100">9</li>
       </ul>
       <div className="bg-pink-900 rounded-xl gap-0.5 grid grid-rows-[repeat(34,_minmax(0,_1fr))] flex-1">
-        <div className="bg-red-500 bg-opacity-80 border-4 border-red-500 rounded-xl p-1 row-span-1">
-          Wake up <span className="block text-gray-300 font-light">30min</span>
+        <div
+          onClick={() => isShown ? setIsShown(false) : setIsShown(true)}
+          className="bg-red-500 relative bg-opacity-70 border-4 border-red-500 rounded-xl p-1 row-span-1"
+        >
+          <span className="absolute top-2 right-2 h-4 w-4 bg-gray-500 rounded-full">
+          </span>
+          {isShown && (
+            <div className="flex gap-2 w-[20%] justify-center text-4xl absolute top-2 left-[40%]">
+              <div className="cursor-pointer hover:text-gray-100 rounded-xl px-5 bg-red-100">
+                x
+              </div>
+              <div className="cursor-pointer hover:text-gray-100 rounded-xl px-4 bg-red-100">
+                ✓
+              </div>
+            </div>
+          )}
+
+          <p>Wake up</p>
+          <span className="block text-gray-300 font-light">30min</span>
         </div>
-        <div className="bg-orange-500 bg-opacity-80 border-4 border-orange-500 rounded-xl p-1 row-span-2">
+        <div className="bg-orange-500 bg-opacity-70 border-4 border-orange-500 rounded-xl p-1 row-span-2">
           Roadwork <span className="block text-gray-300 font-light">1h</span>
         </div>
-        <div className="bg-yellow-500 bg-opacity-80 rounded-xl border-4 border-yellow-500 p-1 row-[4/span_3]">
+        <div className="bg-yellow-500 bg-opacity-70 rounded-xl border-4 border-yellow-500 p-1 row-[4/span_3]">
           Pick up mamabing{" "}
           <span className="block text-gray-300 font-light">1h 30min</span>
         </div>
