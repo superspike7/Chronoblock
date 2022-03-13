@@ -3,7 +3,7 @@ import NoteIcon from "../components/task/NoteIcon";
 import TaskCreate from "../components/task/TaskCreate";
 import Task from "../components/task/Task";
 
-export default function Tasks() {
+export default function Tasks({ tasks }) {
   const [isHiddenForm, setIsHiddenForm] = useState(true);
   return (
     <>
@@ -39,6 +39,17 @@ export default function Tasks() {
           <li className="text-2xl h-32 bg-[#301934] text-gray-100">9</li>
         </ul>
         <div className="bg-pink-900 rounded-xl gap-0.5 grid grid-rows-[repeat(34,_minmax(0,_1fr))] flex-1">
+          {tasks.map((task) => {
+            return (
+              <Task
+                title={task.title}
+                schedule={task.schedule}
+                status={task.status}
+              />
+            );
+          })}
+          {
+            /*
           <Task title="Wake Up!!" time="30min" status={true} />
           <div className="bg-orange-500 bg-opacity-70 border-4 border-orange-500 rounded-xl p-1 row-span-2">
             Roadwork <span className="block text-gray-300 font-light">1h</span>
@@ -47,6 +58,8 @@ export default function Tasks() {
             Pick up mamabing{" "}
             <span className="block text-gray-300 font-light">1h 30min</span>
           </div>
+      */
+          }
         </div>
       </div>
     </>
