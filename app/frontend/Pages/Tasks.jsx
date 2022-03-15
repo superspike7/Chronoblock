@@ -45,6 +45,7 @@ export default function Tasks({ tasks }) {
                 title={task.title}
                 schedule={task.schedule}
                 status={task.status}
+                type={task.task_type}
               />
             );
           })}

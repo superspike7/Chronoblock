@@ -71,8 +71,8 @@ export default function TaskCreate({ isHidden, setIsHidden }) {
           value={values.task_type}
           onChange={handleChange}
         >
-          <option value="deep-work">Deep Work</option>
-          <option value="shallow-work">Shallow Work</option>
+          <option value="deepWork">Deep Work</option>
+          <option value="shallowWork">Shallow Work</option>
           <option value="repeating">Repeating</option>
         </select>
       </div>

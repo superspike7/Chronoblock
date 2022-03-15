@@ -1,12 +1,19 @@
 import React, { useState } from "react";
 
-export default function Task({ title, time, status }) {
+const TASK_COLORS = {
+  repeating: "orange",
+  deepWork: "red",
+  shallowWork: "yellow",
+};
+
+export default function Task({ title, time, status, type }) {
   const [isShown, setIsShown] = useState(false);
 
   return (
     <div
       onClick={() => isShown ? setIsShown(false) : setIsShown(true)}
-      className="bg-red-500 relative bg-opacity-70 border-4 border-red-500 rounded-xl p-1 row-span-1"
+      className={`bg-${TASK_COLORS[type]}-500 relative bg-opacity-70 border-4 
+                  border-${TASK_COLORS[type]}-500 rounded-xl p-1 row-span-1`}
     >
       <span
         className={`absolute top-2 right-2 h-4 w-4 bg-${
