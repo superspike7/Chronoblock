@@ -1,12 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
+import { Inertia } from "@inertiajs/inertia";
 
-export default function TaskCreate({ isHidden }) {
+export default function TaskCreate({ isHidden, setIsHidden }) {
+  const [values, setValues] = useState({
+    title: "",
+    task_type: "deep-work",
+    schedule: "",
+  });
+
+  function handleChange(e) {
+    const key = e.target.name;
+    const value = e.target.value;
+    setValues((values) => ({
+      ...values,
+      [key]: value,
+    }));
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    Inertia.post("/tasks", values);
+    setIsHidden(true);
+  }
+
   return (
     <form
+      onSubmit={handleSubmit}
       className={`${
-        isHidden
-          ? "hidden"
-          : ""
+        isHidden ? "hidden" : ""
       } bg-gray-100 rounded-xl p-2 fixed z-10 h-[45vh] sm:h-[38vh] sm:w-[50vw] sm:left-[25vw] w-[90vw] left-[5vw] top-[11%]`}
     >
       <h1 className="text-center text-2xl">Create new task</h1>
@@ -19,6 +40,8 @@ export default function TaskCreate({ isHidden }) {
           className="p-1 bg-gray-100 outline-offset-[9px] rounded-md h-full focus:outline focus:outline-purple-600"
           type="text"
           name="title"
+          value={values.title}
+          onChange={handleChange}
         />
       </div>
 
@@ -33,6 +56,8 @@ export default function TaskCreate({ isHidden }) {
           className="p-1 bg-gray-100 outline-offset-[9px] rounded-md h-full focus:outline focus:outline-purple-600"
           type="text"
           name="schedule"
+          value={values.schedule}
+          onChange={handleChange}
         />
       </div>
 
@@ -40,7 +65,12 @@ export default function TaskCreate({ isHidden }) {
         <label className="-top-3 px-1 left-4 absolute bg-gray-100" for="type">
           task type
         </label>
-        <select className="p-1 bg-gray-100 outline-offset-[9px] rounded-md h-full focus:outline focus:outline-purple-600">
+        <select
+          className="p-1 bg-gray-100 outline-offset-[9px] rounded-md h-full focus:outline focus:outline-purple-600"
+          name="task_type"
+          value={values.task_type}
+          onChange={handleChange}
+        >
           <option value="deep-work">Deep Work</option>
           <option value="shallow-work">Shallow Work</option>
           <option value="repeating">Repeating</option>

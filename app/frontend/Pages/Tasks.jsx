@@ -8,7 +8,7 @@ export default function Tasks({ tasks }) {
   return (
     <>
       <div className="relative sm:w-[50%] w-[90%] mx-auto mt-24  flex bg-gray-900 gap-0.5">
-        <TaskCreate isHidden={isHiddenForm} />
+        <TaskCreate isHidden={isHiddenForm} setIsHidden={setIsHiddenForm} />
         <div className="grid place-items-center fixed bottom-20 right-1 h-16 w-16 bg-purple-500 text-gray-100 rounded-full text-center ">
           <NoteIcon />
         </div>
