@@ -5,6 +5,8 @@ import Task from "../components/task/Task";
 
 export default function Tasks({ tasks }) {
   const [isHiddenForm, setIsHiddenForm] = useState(true);
+  const [schedule, setSchedule] = useState();
+
   return (
     <>
       <div className="relative sm:w-[50%] w-[90%] mx-auto mt-24  flex bg-gray-900 gap-0.5">
@@ -51,10 +53,11 @@ export default function Tasks({ tasks }) {
           })}
           {
             /*
-          <Task title="Wake Up!!" time="30min" status={true} />
-          <div className="bg-orange-500 bg-opacity-70 border-4 border-orange-500 rounded-xl p-1 row-span-2">
-            Roadwork <span className="block text-gray-300 font-light">1h</span>
+          <div className="bg-orange-500 bg-opacity-70 border-4 border-orange-500 rounded-xl p-1 row-[5/7]">
+            test Roadwork{" "}
+            <span className="block text-gray-300 font-light">1h</span>
           </div>
+          <Task title="Wake Up!!" time="30min" status={true} />
           <div className="bg-yellow-500 bg-opacity-70 rounded-xl border-4 border-yellow-500 p-1 row-[4/span_3]">
             Pick up mamabing{" "}
             <span className="block text-gray-300 font-light">1h 30min</span>
@@ -66,3 +69,6 @@ export default function Tasks({ tasks }) {
     </>
   );
 }
+
+const sheduleInitializer = (schedule) => {
+};
