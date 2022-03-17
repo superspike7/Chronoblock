@@ -44,10 +44,12 @@ export default function Tasks({ tasks }) {
           {tasks.map((task) => {
             return (
               <Task
+                key={task.id}
                 title={task.title}
-                schedule={task.schedule}
+                schedule={{ start: task.task_start, end: task.task_end }}
                 status={task.status}
                 type={task.task_type}
+                id={task.id}
               />
             );
           })}
@@ -69,6 +71,3 @@ export default function Tasks({ tasks }) {
     </>
   );
 }
-
-const sheduleInitializer = (schedule) => {
-};
