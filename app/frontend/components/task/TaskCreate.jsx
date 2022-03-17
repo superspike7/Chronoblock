@@ -21,11 +21,8 @@ export default function TaskCreate({ isHidden, setIsHidden }) {
   function handleSubmit(e) {
     e.preventDefault();
 
-    if (validateInputs(values)) {
-      console.log(values);
-    }
-    // Inertia.post("/tasks", values);
-    // setIsHidden(true);
+    Inertia.post("/tasks", values);
+    setIsHidden(true);
   }
 
   return (
@@ -38,7 +35,10 @@ export default function TaskCreate({ isHidden, setIsHidden }) {
       <h1 className="text-center text-2xl">Create new task</h1>
 
       <div className="flex p-2 flex-col border border-purple-500 rounded-xl bg-gray-100 relative mb-4 mt-8">
-        <label className="-top-3 px-1 left-4 absolute bg-gray-100" for="title">
+        <label
+          className="-top-3 px-1 left-4 absolute bg-gray-100"
+          htmlFor="title"
+        >
           task title
         </label>
         <input
@@ -54,7 +54,7 @@ export default function TaskCreate({ isHidden, setIsHidden }) {
         <div className="flex p-2 flex-col border border-purple-500 rounded-xl bg-gray-100 relative mb-4 mt-8">
           <label
             className="-top-3 px-1 left-4 absolute bg-gray-100"
-            for="schedule"
+            htmlFor="schedule"
           >
             task start
           </label>
@@ -67,7 +67,7 @@ export default function TaskCreate({ isHidden, setIsHidden }) {
           >
             <option value="">-- choose an option --</option>
             {SCHEDULE.map(({ value, label }) => (
-              <option value={value}>{label}</option>
+              <option key={value} value={value}>{label}</option>
             ))}
           </select>
         </div>
@@ -75,7 +75,7 @@ export default function TaskCreate({ isHidden, setIsHidden }) {
         <div className="flex p-2 flex-col border border-purple-500 rounded-xl bg-gray-100 relative mb-4 mt-8">
           <label
             className="-top-3 px-1 left-4 absolute bg-gray-100"
-            for="schedule"
+            htmlFor="schedule"
           >
             task end
           </label>
@@ -88,14 +88,17 @@ export default function TaskCreate({ isHidden, setIsHidden }) {
           >
             <option value="">-- choose an option --</option>
             {SCHEDULE.map(({ value, label }) => (
-              <option value={value}>{label}</option>
+              <option key={value} value={value}>{label}</option>
             ))}
           </select>
         </div>
       </div>
 
       <div className="flex p-2 flex-col border border-purple-500 rounded-xl bg-gray-100 relative mb-4 mt-8">
-        <label className="-top-3 px-1 left-4 absolute bg-gray-100" for="type">
+        <label
+          className="-top-3 px-1 left-4 absolute bg-gray-100"
+          htmlFor="type"
+        >
           task type
         </label>
         <select
@@ -119,16 +122,6 @@ export default function TaskCreate({ isHidden, setIsHidden }) {
       </button>
     </form>
   );
-}
-
-function validateInputs(values) {
-  switch (values) {
-    case values.title:
-      break;
-
-    default:
-      console.log();
-  }
 }
 
 const SCHEDULE = [
