@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import NoteIcon from "../components/task/NoteIcon";
 import TaskCreate from "../components/task/TaskCreate";
 import Task from "../components/task/Task";
+import Layout from "../components/layouts/Layout";
 
 export default function Tasks({ tasks }) {
   const [isHiddenForm, setIsHiddenForm] = useState(true);
-  const [schedule, setSchedule] = useState();
 
   return (
-    <>
-      <div className="relative sm:w-[50%] w-[90%] mx-auto mt-24  flex bg-gray-900 gap-0.5">
+    <Layout>
+      <div className="relative sm:w-[50%] w-[90%] mx-auto mt-24  flex bg-gray-100 gap-0.5">
         <TaskCreate isHidden={isHiddenForm} setIsHidden={setIsHiddenForm} />
         <div className="grid place-items-center fixed bottom-20 right-1 h-16 w-16 bg-purple-500 text-gray-100 rounded-full text-center ">
           <NoteIcon />
@@ -21,26 +21,60 @@ export default function Tasks({ tasks }) {
         >
           +
         </div>
-        <ul className="grid grid-cols-1 border-t-4 border-pink-900 gap-y-0.5 bg-pink-900 text-center">
-          <li className="text-2xl h-32 bg-[#301934] text-gray-100">5</li>
-          <li className="text-2xl h-32 bg-[#301934] text-gray-100">6</li>
-          <li className="text-2xl h-32 bg-[#301934] text-gray-100">7</li>
-          <li className="text-2xl h-32 bg-[#301934] text-gray-100">8</li>
-          <li className="text-2xl h-32 bg-[#301934] text-gray-100">9</li>
-          <li className="text-2xl h-32 bg-[#301934] text-gray-100">10</li>
-          <li className="text-2xl h-32 bg-[#301934] text-gray-100">11</li>
-          <li className="text-2xl h-32 bg-[#301934] text-gray-100">12</li>
-          <li className="text-2xl h-32 bg-[#301934] text-gray-100">1</li>
-          <li className="text-2xl h-32 bg-[#301934] text-gray-100">2</li>
-          <li className="text-2xl h-32 bg-[#301934] text-gray-100">3</li>
-          <li className="text-2xl h-32 bg-[#301934] text-gray-100">4</li>
-          <li className="text-2xl h-32 bg-[#301934] text-gray-100">5</li>
-          <li className="text-2xl h-32 bg-[#301934] text-gray-100">6</li>
-          <li className="text-2xl h-32 bg-[#301934] text-gray-100">7</li>
-          <li className="text-2xl h-32 bg-[#301934] text-gray-100">8</li>
-          <li className="text-2xl h-32 bg-[#301934] text-gray-100">9</li>
+        <ul className="grid border-t-2 border-t-gray-900 grid-cols-1 gap-y-0.5 bg-gray-900 text-center">
+          <li className="text-2xl h-32 bg-opacity-100 bg-gray-100 text-gray-500">
+            05:00
+          </li>
+          <li className="text-2xl h-32 bg-opacity-100 bg-gray-100 text-gray-500">
+            06:00
+          </li>
+          <li className="text-2xl h-32 bg-opacity-100 bg-gray-100 text-gray-500">
+            07:00
+          </li>
+          <li className="text-2xl h-32 bg-opacity-100 bg-gray-100 text-gray-500">
+            08:00
+          </li>
+          <li className="text-2xl h-32 bg-opacity-100 bg-gray-100 text-gray-500">
+            09:00
+          </li>
+          <li className="text-2xl h-32 bg-opacity-100 bg-gray-100 text-gray-500">
+            10:00
+          </li>
+          <li className="text-2xl h-32 bg-opacity-100 bg-gray-100 text-gray-500">
+            11:00
+          </li>
+          <li className="text-2xl h-32 bg-opacity-100 bg-gray-100 text-gray-500">
+            12:00
+          </li>
+          <li className="text-2xl h-32 bg-opacity-100 bg-gray-100 text-gray-500">
+            01:00
+          </li>
+          <li className="text-2xl h-32 bg-opacity-100 bg-gray-100 text-gray-500">
+            02:00
+          </li>
+          <li className="text-2xl h-32 bg-opacity-100 bg-gray-100 text-gray-500">
+            03:00
+          </li>
+          <li className="text-2xl h-32 bg-opacity-100 bg-gray-100 text-gray-500">
+            04:00
+          </li>
+          <li className="text-2xl h-32 bg-opacity-100 bg-gray-100 text-gray-500">
+            05:00
+          </li>
+          <li className="text-2xl h-32 bg-opacity-100 bg-gray-100 text-gray-500">
+            06:00
+          </li>
+          <li className="text-2xl h-32 bg-opacity-100 bg-gray-100 text-gray-500">
+            07:00
+          </li>
+          <li className="text-2xl h-32 bg-opacity-100 bg-gray-100 text-gray-500">
+            08:00
+          </li>
+          <li className="text-2xl h-32 bg-opacity-100 bg-gray-100 text-gray-500">
+            09:00
+          </li>
         </ul>
-        <div className="bg-pink-900 rounded-xl gap-0.5 grid grid-rows-[repeat(34,_minmax(0,_1fr))] flex-1">
+        <div className="bg-gray-100 rounded-xl gap-0.5 grid grid-rows-[repeat(34,_minmax(0,_1fr))] flex-1">
           {tasks.map((task) => {
             return (
               <Task
@@ -68,6 +102,6 @@ export default function Tasks({ tasks }) {
           }
         </div>
       </div>
-    </>
+    </Layout>
   );
 }
