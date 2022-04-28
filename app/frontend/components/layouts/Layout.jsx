@@ -4,14 +4,10 @@ import SideBar from "./SideBar";
 
 export default function Layout({ children }) {
   return (
-    <main>
+    <main className="grid grid-cols-[auto_1fr] grid-rows-[auto_1fr] min-h-screen max-h-screen max-w-screen">
       <Navbar />
-      <div className="h-screen w-full flex">
-        <div className="border-r border-r-gray-500 p-2">
-          <SideBar />
-        </div>
-        <div className="flex-1">{children}</div>
-      </div>
+      <SideBar />
+      {children}
     </main>
   );
 }
