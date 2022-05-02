@@ -57,3 +57,4 @@ end
 
 gem 'inertia_rails'
 gem 'vite_rails'
+gem 'devise'
