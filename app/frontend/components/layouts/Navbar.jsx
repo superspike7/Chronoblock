@@ -1,6 +1,9 @@
+import { usePage } from "@inertiajs/inertia-react";
 import React from "react";
+import { Link } from "@inertiajs/inertia-react";
 
 export default function Navbar() {
+  const { auth } = usePage().props;
   return (
     <div className="navbar bg-base-100 border-b-2 border-b-gray-300 z-20 col-span-2">
       <div className="flex-1">
@@ -9,7 +12,7 @@ export default function Navbar() {
         </a>
       </div>
       <div className="flex-none gap-2">
-        <p>Spike Vinz</p>
+        <p>{auth.user.name}</p>
         <div className="dropdown dropdown-end">
           <label tabIndex="0" className="btn btn-ghost btn-circle avatar">
             <div className="w-10 rounded-full">
@@ -33,7 +36,7 @@ export default function Navbar() {
               <a>Settings</a>
             </li>
             <li>
-              <a>Logout</a>
+              <Link href="/users/sign_out" method="delete">Logout</Link>
             </li>
           </ul>
         </div>

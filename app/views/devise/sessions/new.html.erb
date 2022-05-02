@@ -1,0 +1,41 @@
+<div class="h-screen w-screen flex justify-center items-center">
+  <div
+    class="form-control gap-3 w-full max-w-md bg-neutral text-neutral-content rounded-xl p-8"
+  >
+    <h2 class="text-2xl text-center font-bold">Log in</h2>
+
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="field w-full">
+        <%= f.label :email %><br />
+        <%=
+          f.email_field :email,
+                        autofocus: true,
+                        autocomplete: 'email',
+                        class: 'input w-full text-gray-900'
+        %>
+      </div>
+
+      <div class="field w-full mt-4">
+        <%= f.label :password %><br />
+        <%=
+          f.password_field :password,
+                           autocomplete: 'current-password',
+                           class: 'input w-full text-gray-900'
+        %>
+      </div>
+
+      <% if devise_mapping.rememberable? %>
+        <div class="flex items-center gap-2 mt-4">
+          <%= f.check_box :remember_me, class: "checkbox checkbox-primary" %>
+          <%= f.label :remember_me %>
+        </div>
+      <% end %>
+
+      <div class="actions mt-5">
+        <%= f.submit 'Log in', class: "w-full btn btn-primary" %>
+      </div>
+    <% end %>
+
+    <%= render 'devise/shared/links' %>
+  </div>
+</div>
