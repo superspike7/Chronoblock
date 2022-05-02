@@ -1,9 +1,15 @@
 import { usePage } from "@inertiajs/inertia-react";
 import React from "react";
-import { Link } from "@inertiajs/inertia-react";
+import axios from "axios";
 
 export default function Navbar() {
   const { auth } = usePage().props;
+  const handleLogout = () => {
+    axios.delete("/users/sign_out").finally(() =>
+      window.location.reload(false)
+    );
+  };
+
   return (
     <div className="navbar bg-base-100 border-b-2 border-b-gray-300 z-20 col-span-2">
       <div className="flex-1">
@@ -36,7 +42,7 @@ export default function Navbar() {
               <a>Settings</a>
             </li>
             <li>
-              <Link href="/users/sign_out" method="delete">Logout</Link>
+              <button onClick={handleLogout}>Logout</button>
             </li>
           </ul>
         </div>
