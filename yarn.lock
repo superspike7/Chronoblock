@@ -46,6 +46,11 @@
   dependencies:
     nprogress "^0.2.0"
 
+"@js-from-routes/axios@^1.0.4":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@js-from-routes/axios/-/axios-1.0.4.tgz#4026ca0accefdffc143ec1eceaad9502a12b3f73"
+  integrity sha512-UFnN2Qse+nlVVILgcb7LOlFtHwZV63SxsWSafbmU+s2gQKaM/hTUvVgvSdsf/OKyTH2EgOQJD0dCCdhidot9mA==
+
 "@js-from-routes/client@^1.0.3":
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/@js-from-routes/client/-/client-1.0.3.tgz#5f1312eb266eda340e3e971b840a06db60205a5b"
@@ -57,6 +62,11 @@
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/@js-from-routes/core/-/core-1.0.2.tgz#682c6b18c479b6a80cdc94a0d7e9863d8bbb26a3"
   integrity sha512-7VEYGz4VfkgFb7MDtGEIaGYvn/9oleBaRqtSREFuV9hPooeyrI+ghsP8U4WJlCHFndtTbatUTzXRljt1zJH4Gw==
+
+"@js-from-routes/inertia@^1.10.0":
+  version "1.10.0"
+  resolved "https://registry.yarnpkg.com/@js-from-routes/inertia/-/inertia-1.10.0.tgz#6e56a864bc9b254183fdad993bcdee7222cdead3"
+  integrity sha512-MHXrI4hPm9l7hhp65+erhIY5PKepFLHfbRqrHBch5o1GPdpQiK/X5//omMMtY1ud3yZ+0sDIwClC/xqs69O7cA==
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
