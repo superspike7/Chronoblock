@@ -1,13 +1,12 @@
 import { usePage } from "@inertiajs/inertia-react";
+import { Inertia } from "@inertiajs/inertia";
 import React from "react";
 import axios from "axios";
 
 export default function Navbar() {
   const { auth } = usePage().props;
   const handleLogout = () => {
-    axios.delete("/users/sign_out").finally(() =>
-      window.location.reload(false)
-    );
+    Inertia.delete("/logout");
   };
 
   return (
