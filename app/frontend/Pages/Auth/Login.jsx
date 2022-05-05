@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Inertia } from "@inertiajs/inertia";
-import { usePage } from "@inertiajs/inertia-react";
+import { Link, usePage } from "@inertiajs/inertia-react";
 
 const Login = () => {
   const { flash } = usePage().props;
@@ -55,6 +55,12 @@ const Login = () => {
             <label>Remember Me</label>
           </div>
           <button className="mt-5 w-full btn btn-primary">Login</button>
+          <Link
+            href="/register"
+            className="btn btn-outline btn-primary w-full mt-2"
+          >
+            Register
+          </Link>
         </form>
       </div>
     </div>
