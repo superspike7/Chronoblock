@@ -1,6 +1,6 @@
 import React from "react";
-import { Inertia } from "@inertiajs/inertia";
 import { Link, useForm } from "@inertiajs/inertia-react";
+import AlertError from "../../components/utils/AlertError";
 
 const Register = () => {
   const { data, setData, errors, post, progress } = useForm({
@@ -89,35 +89,6 @@ const Register = () => {
         </form>
       </div>
     </div>
-  );
-};
-
-const AlertError = ({ errors }) => {
-  const errs = Object.entries(errors);
-  if (errs.length === 0) return null;
-  return (
-    <>
-      {errs.map(([key, val]) => (
-        <div key={key} className="alert alert-error shadow-lg flex flex-col">
-          <div>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="stroke-current flex-shrink-0 h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
-              />
-            </svg>
-            <span>{key + " " + val}</span>
-          </div>
-        </div>
-      ))}
-    </>
   );
 };
 

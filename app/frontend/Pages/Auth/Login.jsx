@@ -1,14 +1,22 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import AlertError from "../../components/utils/AlertError";
 import { Inertia } from "@inertiajs/inertia";
 import { Link, usePage } from "@inertiajs/inertia-react";
 
 const Login = () => {
   const { flash } = usePage().props;
+  const [error, setError] = useState({});
   const [inputVals, setInputVals] = useState({
     email: "",
     password: "",
     remember_me: null,
   });
+
+  useEffect(() => {
+    if (flash.alert) {
+      setError({ error: flash.alert });
+    }
+  }, [flash]);
 
   function handleChange(e) {
     const { value, id } = e.target;
@@ -22,13 +30,13 @@ const Login = () => {
     e.preventDefault();
     const userData = { user: { ...inputVals } };
     Inertia.post("/login", userData);
-    console.log(flash.props);
   }
 
   return (
     <div className="h-screen w-screen flex justify-center items-center">
       <div className="form-control gap-3 w-full max-w-md bg-neutral text-neutral-content rounded-xl p-8">
         <h2 className="text-4xl text-center font-bold">Log in</h2>
+        <AlertError errors={error} />
         <form onSubmit={handleSubmit} className="flex flex-col gap-2">
           <div className="w-full">
             <label htmlFor="email">Email:</label>
