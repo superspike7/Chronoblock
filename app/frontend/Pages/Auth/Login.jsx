@@ -14,7 +14,7 @@ const Login = () => {
 
   useEffect(() => {
     if (flash.alert) {
-      setError({ error: flash.alert });
+      setError({ Error: flash.alert });
     }
   }, [flash]);
 
