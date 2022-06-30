@@ -8,6 +8,8 @@
     "vite-plugin-ruby": "^3.0.8"
   },
   "dependencies": {
+    "vite": "^2.8.6",
+    "vite-plugin-ruby": "^3.0.8",
     "@inertiajs/inertia": "^0.11.0",
     "@inertiajs/inertia-react": "^0.8.0",
     "@inertiajs/progress": "^0.2.7",

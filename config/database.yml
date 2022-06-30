@@ -83,6 +83,6 @@ test:
 #
 production:
   <<: *default
-  database: Chronoblock_production
-  username: Chronoblock
+  database: Chronoblock
+  username: deploy
   password: <%= ENV["CHRONOBLOCK_DATABASE_PASSWORD"] %>
